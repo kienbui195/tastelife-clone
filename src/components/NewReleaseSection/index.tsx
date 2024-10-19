@@ -57,7 +57,7 @@ export default function NewReleaseSection () {
       <Carousel className=''>
           <CarouselContent className='h-full'>
             {data.map((item, idx) => (
-              <CarouselItem key={idx} className='w-[166px] basis-2/5'>
+              <CarouselItem key={idx} className='w-[166px] basis-2/5 sm:basis-1/4'>
                  <div className='flex flex-col space-y-2'>
                   <Link href={`/play-movie/${item.attributes.slug}`}>
                     <ImageCustom src={item.attributes.poster.data[0]?.attributes.url ?? ''} className='w-[166px] object-cover rounded-xl h-[93px]'/>
