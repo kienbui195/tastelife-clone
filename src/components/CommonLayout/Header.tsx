@@ -31,7 +31,7 @@ const Header = () => {
             </div>
           </div>
         )}
-        {label !== "" && slug !== "" && (
+        {pathname !== "" && label !== "" && slug !== "" && (
           <div className="flex items-center justify-between py-2">
             <Link
               className=""
