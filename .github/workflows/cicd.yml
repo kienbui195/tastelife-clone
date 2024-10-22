@@ -1,0 +1,35 @@
+name: Remote ssh command
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build FE Tastelife Clone main enviroment
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEV_SSH_HOST }}
+          username: ${{ secrets.DEV_USERNAME }}
+          key: ${{ secrets.DEV_SSH_KEY }}
+          port: ${{ secrets.DEV_PORT }}
+          script: |
+            whoami
+            cd ~/project/tastelife-clone
+            eval "$(ssh-agent -s)"
+            ssh-add ~/.ssh/ssh_key
+            git checkout .
+            git status
+            git clean -df
+            git pull origin main
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh  
+            yarn
+            rm -rf .env
+            echo "NEXT_PUBLIC_API_URL=https://shortdrama.lotusa.net/api" >> .env
+            echo "NEXT_PUBLIC_BE_URL=https://shortdrama.lotusa.net" >> .env
+            echo "NEXT_PUBLIC_TOKEN=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTA1LCJpYXQiOjE3MjkyMTg5NjksImV4cCI6MTcyOTgyMzc2OX0.IUYVWZVYiq5flJjPkYqsVnT7LLuFEf7OAikinoQinWw" >> .env
+            yarn build
+            pm2 reload TastelifeClone

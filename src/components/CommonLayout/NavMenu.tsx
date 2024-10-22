@@ -19,13 +19,13 @@ export default function NavMenu () {
         <NavItem icon={<Home/>} label='Home' isChoose={pathname === '/'}/>
       </Link>
       <Link href={'/for-you'}>
-        <NavItem icon={<Film/>} label='For you' isChoose={pathname === '/for-you'}/> 
+        <NavItem icon={<Film/>} label='For you' isChoose={pathname !== '/' && pathname.includes('for-you')}/> 
       </Link>
       <Link href={'/rewards'}>
-        <NavItem icon={<Gift/>} label='Rewards' isChoose={pathname === '/rewards'} />
+        <NavItem icon={<Gift/>} label='Rewards' isChoose={pathname !== '/' && pathname.includes('rewards')} />
       </Link>
       <Link href={'/profile'}>
-        <NavItem icon={<User/>} label='Profile' isChoose={pathname === '/profile'}/>
+        <NavItem icon={<User/>} label='Profile' isChoose={pathname !== '/' && pathname.includes('profile')}/>
       </Link>
       </div>
     </footer>

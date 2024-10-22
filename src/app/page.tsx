@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import ComingSoonSection from "@/components/CommingSoonSection";
 import ContinueWatchingSection from "@/components/ContinueWatching";
@@ -11,14 +11,14 @@ import TrendingSection from "@/components/TrendingSection";
 export default function Home() {
   return (
     <div className="">
-      <FeatureSection/>
+      <FeatureSection />
       <div className="px-4 space-y-8">
-        <TrendingSection/>
-        <TopPickSection/>
-        <NewReleaseSection/>
-        <ContinueWatchingSection/>
-        <ComingSoonSection/>
-        <RecommendedSection/>
+        <TrendingSection />
+        <TopPickSection />
+        <NewReleaseSection />
+        <ContinueWatchingSection />
+        <ComingSoonSection />
+        <RecommendedSection />
       </div>
     </div>
   );
