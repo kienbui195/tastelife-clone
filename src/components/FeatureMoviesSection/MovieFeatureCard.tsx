@@ -13,7 +13,7 @@ export interface MovieFeatureCardProps {
 const MovieFeatureCard = ({ thumbnail, slug }: MovieFeatureCardProps) => {
   return (
     <div className={cn([
-      `rounded-3xl max-w-[640px] h-[500px] m-4 relative overflow-hidden`
+      `rounded-3xl w-full h-[500px] relative overflow-hidden`
     ])}>
       <ImageCustom src={thumbnail} className='object-cover w-full h-full rounded-3xl bg-black'/>
       <div className='flex items-center px-2 pb-2 absolute justify-between left-2 right-2 bottom-2'>

@@ -68,7 +68,7 @@ export default function TrendingSection() {
               </div>
             </CarouselItem>
           )) : Array.from({ length: 3 }).map((_, idx) => (
-            <CarouselItem key={idx} className='w-[166px] basis-2/5 sm:basis-1/4'>
+            <CarouselItem key={idx} className='basis-2/5 sm:basis-1/4'>
               <TrendingSectionSkeleton />
             </CarouselItem>
           ))}

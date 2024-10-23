@@ -51,7 +51,7 @@ const FeatureSection = () => {
     inView && data.length < 1 && handleGetPageData();
   }, [inView]);
 
-  return <section ref={ref}>
+  return <section ref={ref} className="p-4">
     {!loading ? (
       <Carousel
         plugins={[
@@ -62,7 +62,7 @@ const FeatureSection = () => {
       >
         <CarouselContent>
           {data.map((item, idx) => (
-            <CarouselItem key={idx} className="">
+            <CarouselItem key={idx} className="pl-4">
               <MovieFeatureCard thumbnail={item.thumbnail} slug={item.slug} />
             </CarouselItem>
           ))}
